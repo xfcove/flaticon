@@ -1,0 +1,58 @@
+{
+  "name": "flaticon",
+  "displayName": "Flaticon",
+  "description": "Flaticon CDN Icon Gallery",
+  "version": "1.0.0",
+  "publisher": "Thnoxs",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "logo.png",
+  "activationEvents": [
+    "onView:flaticon.sidebarView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "flaticon-explorer",
+          "title": "Flaticon",
+          "icon": "resources/sidebar-icon.svg"
+        }
+      ]
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/xfcove/flaticon.git"
+    },
+    "views": {
+      "flaticon-explorer": [
+        {
+          "type": "webview",
+          "id": "flaticon.sidebarView",
+          "name": "Icon Gallery"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "^8.39.0",
+    "typescript": "^5.0.4"
+  }
+}
